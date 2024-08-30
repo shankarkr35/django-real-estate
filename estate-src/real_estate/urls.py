@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('supersecret/', admin.site.urls),
+    path('api/v1/auth/', include("djoser.urls")),  # Correct this line
+    path('api/v1/auth/', include("djoser.urls.jwt")),  # Correct this line
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

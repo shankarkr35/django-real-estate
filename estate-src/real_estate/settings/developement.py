@@ -10,3 +10,13 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT'),
     }  
 }
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.Emailbackend"
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+DEFAULT_FROM_EMAIL = "shankar.wxit@gmail.com"
+DOMAIN = os.getenv('DOMAIN')
+SITE_NAME = "Real Estate"
