@@ -7,7 +7,7 @@ urlpatterns = [
     path('supersecret/', admin.site.urls),
     path('api/v1/auth/', include("djoser.urls")),  # Correct this line
     path('api/v1/auth/', include("djoser.urls.jwt")),  # Correct this line
-     path('api/v1/profile/', include("apps.profiles.urls")),
+    path('api/v1/profile/', include("apps.profiles.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

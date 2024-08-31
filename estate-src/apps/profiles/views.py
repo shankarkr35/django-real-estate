@@ -56,9 +56,10 @@ class UpdateProfileAPIView(APIView):
         if user_name != username:
             raise NotYourProfile
         data = request.data
-        serializer = UpdateProfileSerializer(isinstance=request.user.profile,data=data,partial=True)
+        serializer = UpdateProfileSerializer(instance=request.user.profile,data=data,partial=True)
 
-        serializer.is_valid()
+        # Validate the serializer
+        serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data,status=status.HTTP_200_OK)
 
