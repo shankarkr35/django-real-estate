@@ -79,7 +79,7 @@ class Property(TimeStampedUUIDModel):
 
     def save(self,*args, **kwargs):
         self.title = str.title(self.title)
-        self.description = str.description(self.description)
+        self.description = str.capitalize(self.description)
         self.ref_code = "".join(
             random.choices(string.ascii_uppercase + string.digits, k=10)
         )
