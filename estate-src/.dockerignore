@@ -1,0 +1,70 @@
+# Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Environment variables
+.env
+*.env
+
+# Virtual environments
+venv/
+env/
+*.egg-info/
+
+# Build files
+build/
+dist/
+
+# Docker-related files
+Dockerfile
+docker-compose.yml
+*.dockerignore
+
+# Logs
+*.log
+logs/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage/
+*.pytest_cache
+
+# Static files (can be generated)
+staticfiles/
+static/
+
+# Media files (if not needed in the image)
+media/
+
+# IDE/editor-related files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Node.js dependencies (if you use Node.js for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Git
+.git/
+.gitignore

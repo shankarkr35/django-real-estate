@@ -1,0 +1,77 @@
+#!/bin/bash
+
+set -o errexit 
+
+set -o pipefail
+
+set -o nounset
+
+postgres_ready() {
+    python << END
+import sys
+import psycopg2
+from psycopg2 import OperationalError
+
+try:
+    conn = psycopg2.connect(
+        dbname="${DB_NAME}",
+        user="${DB_USER}",
+        password="${DB_PASSWORD}",
+        host="${DB_HOST}",
+        port="${DB_PORT}",
+    )
+    
+except OperationalError:
+    sys.exit(-1)  # Exit with error if the connection fails
+sys.exit(0)  # Exit with success if the connection is successful
+END
+}
+
+until postgres_ready; do
+  >&2 echo "Waiting for PostgreSQL to become available...${DB_NAME} :-("
+  sleep 1
+done
+
+>&2 echo "PostgreSQL is ready!!! :-)"
+exec "$@"
+
+
+# #!/bin/bash
+
+# # Exit on errors, failed pipes, or unset variables
+# set -o errexit
+# set -o pipefail
+# set -o nounset
+
+# # Function to check if PostgreSQL is ready
+# postgres_ready() {
+#     python << END
+# import sys
+# import psycopg2
+# from psycopg2 import OperationalError
+
+# try:
+#     conn = psycopg2.connect(
+#         dbname="${DB_NAME}",
+#         user="${DB_USER}",
+#         password="${DB_PASSWORD}",
+#         host="${DB_HOST}",
+#         port="${DB_PORT}",
+#     )
+#     conn.close()  # Close the connection if successful
+# except OperationalError:
+#     sys.exit(-1)  # Exit with error if the connection fails
+# sys.exit(0)  # Exit with success if the connection is successful
+# END
+# }
+
+# # Wait for PostgreSQL to be ready
+# until postgres_ready; do
+#   >&2 echo "Waiting for PostgreSQL to become available... DB: ${DB_NAME} :-("
+#   sleep 1
+# done
+
+# # PostgreSQL is ready, continue with the next command
+# >&2 echo "PostgreSQL is ready!!!  DB: ${DB_NAME}:-)"
+# exec "$@"
+

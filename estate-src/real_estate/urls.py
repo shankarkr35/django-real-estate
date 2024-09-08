@@ -13,8 +13,8 @@ urlpatterns = [
     path('api/v1/enquiries/', include("apps.enquiries.urls")),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "Real Estate Admin"
 admin.site.site_title = "Real Estate Admin Portal"
