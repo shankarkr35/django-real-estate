@@ -11,8 +11,8 @@ def test_user_short_name(base_user):
 
 def test_user_full_name(base_user):
     """Test that the user models get_full_name method works"""
-    full_name = f"{base_user.username}"
-    assert base_user.get_full_name()==full_name
+    full_name = f"{base_user.first_name} {base_user.last_name}"
+    assert base_user.get_full_name == full_name
 
 def test_base_user_email_is_normalized(base_user):
     """Test that a new users email is normalized"""
@@ -28,13 +28,13 @@ def test_super_user_is_not_staff(user_factory):
     """Test that an error is raised when an admin user has is_staff set to false"""
     with pytest.raises(ValueError) as err:
         user_factory.create(is_superuser=True,is_staff=False)
-    assert str(err.value) == "Superusers must have is_staff =True"
+    assert str(err.value) == "Superuser must have is_staff=True"
 
 def test_super_user_is_not_superuser(user_factory):
     """Test that an error is raised when an admin user has is_superuser set to false"""
     with pytest.raises(ValueError) as err:
         user_factory.create(is_superuser=False,is_staff=True)
-    assert str(err.value) == "Superusers must have is_superuser =True"
+    assert str(err.value) == "Superuser must have is_superuser=True"
 
 def test_create_user_with_no_email(user_factory):
     """Test that creating a new user with no email address raises an error"""
