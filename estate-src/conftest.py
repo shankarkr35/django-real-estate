@@ -5,7 +5,7 @@ from tests.factories import ProfileFactory,UserFactory
 register(ProfileFactory)
 register(UserFactory)
 
-@pytest.fixture
+@pytest.fixture 
 def base_user(db,user_factory):
     new_user = user_factory.create()
     return new_user

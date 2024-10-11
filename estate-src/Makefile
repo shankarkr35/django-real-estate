@@ -22,7 +22,7 @@ build:
 up:
 	docker compose up -d
 
-down:
+down: 
 	docker compose down
 
 show-logs:

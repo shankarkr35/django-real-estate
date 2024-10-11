@@ -12,7 +12,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField(read_only=True)
     country = CountryField(name_only=True)
     reviews = serializers.SerializerMethodField(read_only=True)
-
+ 
     class Meta:
         model = Profile
         fields = ["username","first_name","last_name","email","full_name","id","phone_number","profile_photo","about_me","license","gender","country","city","is_buyer","is_seller","is_agent","rating","num_reviews","reviews"]

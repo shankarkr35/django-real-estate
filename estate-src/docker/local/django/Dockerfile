@@ -1,7 +1,7 @@
 FROM python:3.10.0-slim-buster
 
 # Set environment variables
-ENV APP_HOME=/app
+ENV APP_HOME=/app 
 RUN mkdir $APP_HOME
 RUN mkdir $APP_HOME/staticfiles
 WORKDIR $APP_HOME

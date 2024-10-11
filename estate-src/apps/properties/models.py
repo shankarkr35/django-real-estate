@@ -11,7 +11,7 @@ from django_countries.fields import CountryField
 from apps.common.models import TimeStampedUUIDModel
 
 User = get_user_model()
-
+ 
 class PropertyPublishedManager(models.Manager):
     def get_queryset(self):
         return (
