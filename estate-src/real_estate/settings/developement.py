@@ -11,7 +11,8 @@ DATABASES = {
     }  
 }
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "djcelery_email.backend.CeleryEmailBackend"
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
@@ -20,3 +21,7 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')
 DEFAULT_FROM_EMAIL = "shankar.wxit@gmail.com"
 DOMAIN = os.getenv('DOMAIN')
 SITE_NAME = "Real Estate"
+
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER')
+CELERY_RESULT_BACKEND = os.getenv('CELERY_BACKEND')
+CELERY_TIMEZONE = "Asia/Kolkata"

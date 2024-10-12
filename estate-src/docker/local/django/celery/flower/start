@@ -1,0 +1,71 @@
+# #!/bin/bash
+
+# set -o errexit
+# set -o nounset
+
+# worker_ready(){
+#     celery -A real_estate inspect ping
+# }
+
+# until worker_ready; do
+#     >&2 echo 'Celery workers not available :-('
+#     sleep 1
+# done
+
+# >&2 echo 'Celery workers are available and ready!... :-)'
+
+# # Replace this line with the correct path if necessary
+# flower \
+#     --app=real_estate \
+#     --broker="${CELERY_BROKER}"
+
+
+# #!/bin/bash
+
+# set -o errexit
+# set -o nounset
+
+# worker_ready(){
+#     celery -A real_estate inspect ping
+# }
+
+# until worker_ready; do
+#     >&2 echo 'Celery workers not available :-('
+#     sleep 1
+# done
+
+# >&2 echo 'Celery workers are available and ready!... :-)'
+
+# # Set the correct PYTHONPATH
+# export PYTHONPATH="${PYTHONPATH:-/app/real_estate}"
+
+# # Use the correct path to the Flower command
+# /usr/local/bin/flower \
+#     --app=real_estate.celery:app \
+#     --broker="${CELERY_BROKER}"
+
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+worker_ready(){
+    celery -A real_estate inspect ping
+}
+
+until worker_ready; do
+    >&2 echo 'Celery workers not available :-('
+    sleep 1
+done
+
+>&2 echo 'Celery workers are available and ready!... :-)'
+
+# Run Flower using python -m
+# python -m flower --app=real_estate.celery:app --broker="${CELERY_BROKER}"
+celery -A real_estate flower --broker="${CELERY_BROKER}"
+
+
+
+
+
+

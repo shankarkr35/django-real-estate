@@ -19,3 +19,18 @@ pytest-django==4.4.0
 pytest-factoryboy==2.1.0
 Faker==8.9.1
 pytest-cov==2.12.1
+redis==5.1.1
+celery==5.4.0
+flower==2.0.1
+django-celery-email==3.0.0
+argh==0.31.3
+PyYAML==6.0.2
+watchdog==5.0.3
+
+# redis==3.5.3
+# celery==5.4.0
+# flower>=1.0.0
+# django-celery-email==3.0.0
+# argh==0.26.2
+# PyYAML==5.3.1
+# watchdog==1.0.2

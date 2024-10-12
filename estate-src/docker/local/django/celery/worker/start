@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -o errexit
+
+set -o nounset
+
+watchmedo auto-restart -d real_estate/ -p "*.py" -- celery -A real_estate worker --loglevel=info
+
+
+# watchmedo auto-restart -d real_estate/ -p "*.py" -- celery worker -A
+# real_estate --loglevel=info
+
+
+# #!/bin/bash
+
+# # Exit immediately if a command exits with a non-zero status
+# set -o errexit
+
+# # Treat unset variables and parameters as an error
+# set -o nounset
+
+# # Use watchmedo to auto-restart celery worker on Python file changes
+# watchmedo auto-restart \
+#     --directory=real_estate/ \
+#     --pattern="*.py" \
+#     --recursive \
+#     -- celery -A real_estate worker --loglevel=info
